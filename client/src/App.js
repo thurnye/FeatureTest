@@ -13,6 +13,9 @@ import ViewAll from './pages/ViewAll/ViewAll';
 import { Container } from '@mui/material';
 import NoMatch from './pages/NoMatch/NoMatch';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import GoogleCloudVisionPro from './pages/GoogleCloudVisionPro/GoogleCloudVisionPro';
+import AppleWellnessIntegration from './pages/AppleWellnessIntegration/AppleWellnessIntegration';
+import StravaIntegration from './pages/StravaIntegration/StravaIntegration';
 
 // Utility function to check if token is expired
 const isTokenExpired = (token) => {
@@ -50,6 +53,9 @@ function App() {
             
             {user ? <>
               <Route path='/all' element={<ViewAll />} />
+              <Route path='/google-cloud-vision' element={<GoogleCloudVisionPro/>} />
+              <Route path='/apple-wellness' element={<AppleWellnessIntegration/>} />
+              <Route path='/strava' element={<StravaIntegration/>} />
               <Route path='/single/:id' element={<Single />} />
               <Route path='/edit/:id' element={<SignUp />} />
             </> : <>

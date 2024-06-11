@@ -25,6 +25,21 @@ const pages = [
     name: 'Items',
     path: '/all',
     active: false,
+  },
+  {
+    name: 'Google Cloud Vision',
+    path: '/google-cloud-vision',
+    active: false,
+  },
+  {
+    name: 'Apple Wellness',
+    path: '/apple-wellness',
+    active: false,
+  },
+  {
+    name: 'Strava',
+    path: '/strava',
+    active: false,
   }
 ];
 const settings = ['Profile', 'Account', 'Dashboard'];

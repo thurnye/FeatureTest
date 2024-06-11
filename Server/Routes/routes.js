@@ -1,4 +1,5 @@
 const userController = require('../Controller/userController');
+const GoogleVisionProController = require('../Controller/googleVisionProController')
 const router = require('express').Router()
 
 //SignUp
@@ -25,4 +26,7 @@ router.get('/user/:id', userController.getAUserByID);
 router.post('/user/:id', userController.postDeleteUser);
 
 
+
+// GoogleVisionPro
+router.post('/analyze-image', GoogleVisionProController.postAnalyzeImage)
 module.exports = router;
