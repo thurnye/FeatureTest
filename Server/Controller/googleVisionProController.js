@@ -21,7 +21,7 @@ const postAnalyzeImage = async (req, res) => {
             const [response] = await client.labelDetection(imageUrl);
             result = response.labelAnnotations;
         } else {
-            return res.status(400).json({ error: 'No image provided' });
+            return res.status(400).json('No image provided');
         }
 
         res.status(200).json(result);
