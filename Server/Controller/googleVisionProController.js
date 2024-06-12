@@ -9,7 +9,7 @@ const postAnalyzeImage = async (req, res) => {
     try {
         const { imageUrl, base64Image } = req.body;
         let result;
-
+        console.log( imageUrl, base64Image )
         if (base64Image) {
             const [response] = await client.labelDetection({
                 image: {
@@ -18,7 +18,7 @@ const postAnalyzeImage = async (req, res) => {
             });
             result = response.labelAnnotations;
         } else if (imageUrl) {
-            const [response] = await client.labelDetection(imageUrl);
+            const [response] = await client.labelDetection(`${imageUrl}`);
             result = response.labelAnnotations;
         } else {
             return res.status(400).json('No image provided');
