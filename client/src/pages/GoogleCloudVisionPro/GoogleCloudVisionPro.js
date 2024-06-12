@@ -11,6 +11,7 @@ import Dropzone from 'react-dropzone';
 import { LiaCameraRetroSolid } from 'react-icons/lia';
 import Grid from '@mui/material/Grid';
 import RequestFeedback from '../../components/RequestFeedback/RequestFeedback';
+import services from '../../util/services';
 
 const convertToBase64 = (file) => {
   return new Promise((resolve, reject) => {
@@ -50,19 +51,14 @@ const GoogleCloudVisionPro = () => {
       setOpen(true);
       setMessage('');
       setShowCancel(false);
-      const response = await fetch('http://localhost:9000/analyze-image', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          imageUrl: uploadType === 'link' ? imageUrl : '',
-          base64Image: uploadType === 'upload' ? base64Image : '',
-        }),
-      });
+      const uploads = {
+        imageUrl: uploadType === 'link' ? imageUrl : '',
+        base64Image: uploadType === 'upload' ? base64Image : '',
+      }
+      const response = await services.postAnalyzeImage(uploads)
+      console.log(response);
 
-      const data = await response.json();
-      console.log(data);
+      const data = await response.data;
       setReqLoading(false);
       setSaved(true);
       setMessage('Analysis Completed');

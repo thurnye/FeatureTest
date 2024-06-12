@@ -30,6 +30,10 @@ class StuffDataService {
     return http.post(`/user/${id}`);
   }
 
+  postAnalyzeImage(data){
+    return http.post(`/analyze-image`, data);
+  }
+
 
 
 }
